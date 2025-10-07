@@ -5,8 +5,7 @@ body{
 }
   .kartu-profil{
     width: 300px;
-    margin: 50px auto; /* 50px jarak atas/bawah, auto menengahkan 
-    kiri/kanan */
+    margin: 50px auto; /* 50px jarak atas/bawah, auto menengahkan kiri/kanan */
     padding: 20px;
     background-color: white;
     border-radius: 15px; /* membuat sudut menjadi melengkung */
