@@ -1,93 +1,117 @@
 body{
-  background-color: #ffffe0; /* Warna kuning cerah */
-  font-family: arial, sans-serif; /* Jenis huruf yang bersih dan mudah dibaca */
-  color: #191870: /* warna teks utama (biru gelap) */
+  background-color: #ffffe0; /* Warna kuning cerah */
+  font-family: arial, sans-serif; /* Jenis huruf yang bersih dan mudah dibaca */
+  color: #191870; /* warna teks utama (biru gelap) */ /* Perbaiki kesalahan ketik: hapus titik dua ekstra */
 }
-  .kartu-profil{
-    width: 300px;
-    margin: 50px auto; /* 50px jarak atas/bawah, auto menengahkan kiri/kanan */
-    padding: 20px;
-    background-color: white;
-    border-radius: 15px; /* membuat sudut menjadi melengkung */
-    box-shadow: 0 4px 8px rgba (0,0,0,0.1); */ efek bayangan */
+  .kartu-profil{
+    width: 300px;
+    margin: 50px auto; /* 50px jarak atas/bawah, auto menengahkan kiri/kanan */
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px; /* membuat sudut menjadi melengkung */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Perbaiki kesalahan ketik: hapus spasi sebelum (0,0,0,0.1) */
+    text-align: center; /* Menengahkan semua teks di dalam kartu */
 }
 
 .kartu-profil img {
-  width: 300px;
-  border-radius: 50%; */ trik untuk membuat gambar persegi menjadi lingkaran sempurna */
-  }
-
-.kartu-profil {
-  /* kode dari slide sebelumnya... */
-  text-align: center; /* Menengahkan semua teks di dalam kartu */
+  /* Mengurangi ukuran foto dari 300px menjadi 200px */
+  width: 200px; /* <--- PERUBAHAN UTAMA: Foto lebih kecil */
+  border-radius: 50%; /* trik untuk membuat gambar persegi menjadi lingkaran sempurna */
+  /* Menambahkan sedikit margin untuk memisahkan dari elemen di bawahnya */
+  margin-bottom: 20px;
 }
+
+/* Hapus blok .kartu-profil kedua yang berisi text-align: center; karena sudah digabungkan di atas */
 
 
 /* Gaya Dasar untuk Kontainer dan Tombol Pusat */
 .menu-container {
-  /* Posisi relatif penting untuk menempatkan item di sekitarnya */
-  position: relative; 
-  width: 100px;
-  height: 100px;
+  /* Posisi relatif penting untuk menempatkan item di sekitarnya */
+  position: relative; 
+  width: 100px;
+  height: 100px;
+  /* Menengahkan menu-container di dalam kartu */
+  margin: 20px auto; /* <--- PERUBAHAN: Menengahkan di bawah foto dan tombol */
 }
 
 .menu-toggle {
-  /* Membuat tombol START jadi lingkaran */
-  width: 100%;
-  height: 50%;
-  border-radius: 40%;
-  background-color: #86d45d; /* Warna Keren */
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  position: absolute; /* Memposisikan di tengah kontainer */
-  top: 0;
-  left: 0;
-  z-index: 10; /* Pastikan di atas item menu lain */
+  /* Membuat tombol START jadi lingkaran */
+  width: 100%;
+  height: 50%;
+  border-radius: 40%;
+  background-color: #86d45d; /* Warna Keren */
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  position: absolute; /* Memposisikan di tengah kontainer */
+  top: 0;
+  left: 0;
+  z-index: 10; /* Pastikan di atas item menu lain */
+  
+  /* --- PERUBAHAN UTAMA: Efek 3D Sederhana --- */
+  /* Bayangan kotak yang tebal untuk memberikan ilusi kedalaman */
+  box-shadow: 0 5px 0 #5f973e, /* Bayangan bawah yang lebih gelap (efek 3D) */
+              0 10px 10px rgba(0,0,0,0.2); /* Bayangan umum untuk kedalaman */
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out; 
+}
+
+/* Tambahkan efek saat diklik/aktif untuk menunjukkan tombol "ditekan" */
+.menu-container.active .menu-toggle,
+.menu-toggle:active {
+  /* Mengurangi bayangan untuk simulasi tombol tertekan */
+  box-shadow: 0 2px 0 #5f973e, 
+              0 5px 5px rgba(0,0,0,0.2);
+  /* Menggeser tombol sedikit ke bawah agar terlihat tertekan */
+  transform: translateY(3px); 
 }
 
 /* Gaya untuk Item Menu (Kalkulator, Timer, Note) */
 .menu-item {
-  width: 50px;
-  height: 50px;
-  line-height: 50px; /* Untuk memusatkan teks */
-  text-align: center;
-  border-radius: 50%;
-  background-color: #f1a1d1; /* Warna opsi */
-  position: absolute;
-  /* Item menu awalnya ditumpuk di atas tombol START */
-  top: 25px; 
-  left: 25px; 
-  opacity: 0; /* Sembunyikan item awalnya */
-  transition: all 0.5s ease; /* Transisi untuk animasi menyebar */
-  z-index: 5;
+/* ... (tidak ada perubahan pada bagian ini) ... */
+  width: 50px;
+  height: 50px;
+  line-height: 50px; /* Untuk memusatkan teks */
+  text-align: center;
+  border-radius: 50%;
+  background-color: #f1a1d1; /* Warna opsi */
+  position: absolute;
+  /* Item menu awalnya ditumpuk di atas tombol START */
+  top: 25px; 
+  left: 25px; 
+  opacity: 0; /* Sembunyikan item awalnya */
+  transition: all 0.5s ease; /* Transisi untuk animasi menyebar */
+  z-index: 5;
 }
 
 .menu-item a {
-  text-decoration: none;
-  color: #333;
-  display: block;
-  font-size: 10px;
+/* ... (tidak ada perubahan pada bagian ini) ... */
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-size: 10px;
 }
 
 /* KELAS AKTIF: Memicu Penyebaran Menu */
 
 /* Saat menu-container memiliki kelas 'active', item-item akan dipindahkan */
 .menu-container.active .calculator-item {
-  /* Pindahkan ke samping kiri */
-  transform: translate(-50px, -50px); 
-  opacity: 1;
+/* ... (tidak ada perubahan pada bagian ini) ... */
+  /* Pindahkan ke samping kiri */
+  transform: translate(-50px, -50px); 
+  opacity: 1;
 }
 
 .menu-container.active .timer-item {
-  /* Pindahkan ke atas */
-  transform: translate(0, -70px); 
-  opacity: 1;
+/* ... (tidak ada perubahan pada bagian ini) ... */
+  /* Pindahkan ke atas */
+  transform: translate(0, -70px); 
+  opacity: 1;
 }
 
 .menu-container.active .note-item {
-  /* Pindahkan ke samping kanan */
-  transform: translate(50px, -50px); 
-  opacity: 1;
+/* ... (tidak ada perubahan pada bagian ini) ... */
+  /* Pindahkan ke samping kanan */
+  transform: translate(50px, -50px); 
+  opacity: 1;
 }
