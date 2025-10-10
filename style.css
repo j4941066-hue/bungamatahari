@@ -32,47 +32,35 @@ body{
 }
 
 .menu-toggle {
-  /* *** PERBAIKAN: Membuat tombol START jadi lingkaran sempurna *** */
+  /* Membuat tombol START jadi lingkaran */
   width: 100%;
-  height: 100%; /* Ubah dari 50% ke 100% */
-  border-radius: 50%; /* Ubah dari 40% ke 50% */
+  height: 50%;
+  border-radius: 40%;
   background-color: #86d45d; /* Warna Keren */
   color: white;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  
-  /* Tambahkan Flexbox untuk memusatkan teks 'START' */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: absolute; 
+  position: absolute; /* Memposisikan di tengah kontainer */
   top: 0;
   left: 0;
-  z-index: 10; 
-  transition: transform 0.3s ease; /* Tambahkan transisi untuk animasi START */
+  z-index: 10; /* Pastikan di atas item menu lain */
 }
 
 /* Gaya untuk Item Menu (Kalkulator, Timer, Note) */
 .menu-item {
   width: 50px;
   height: 50px;
-  line-height: 50px; 
+  line-height: 50px; /* Untuk memusatkan teks */
   text-align: center;
   border-radius: 50%;
-  background-color: #f1a1d1; 
+  background-color: #f1a1d1; /* Warna opsi */
   position: absolute;
-  
-  /* *** PERUBAHAN: Item menu awalnya diposisikan agar tidak 'bocor' *** */
-  /* Posisikan di tengah tombol START */
+  /* Item menu awalnya ditumpuk di atas tombol START */
   top: 25px; 
   left: 25px; 
-  
-  /* Gunakan scale(0) untuk menyembunyikan tanpa memengaruhi tata letak */
-  transform: scale(0);
-  opacity: 0; 
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Transisi yang lebih keren */
+  opacity: 0; /* Sembunyikan item awalnya */
+  transition: all 0.5s ease; /* Transisi untuk animasi menyebar */
   z-index: 5;
 }
 
@@ -82,14 +70,12 @@ body{
   display: block;
   font-size: 10px;
 }
-.menu-container.active .note-item {
-  /* Pindahkan ke kanan atas */
-  transform: translate(50px, -50px); 
-  opacity: 1;
-}
 
+/* KELAS AKTIF: Memicu Penyebaran Menu */
+
+/* Saat menu-container memiliki kelas 'active', item-item akan dipindahkan */
 .menu-container.active .calculator-item {
-  /* Pindahkan ke kiri atas */
+  /* Pindahkan ke samping kiri */
   transform: translate(-50px, -50px); 
   opacity: 1;
 }
@@ -97,5 +83,11 @@ body{
 .menu-container.active .timer-item {
   /* Pindahkan ke atas */
   transform: translate(0, -70px); 
+  opacity: 1;
+}
+
+.menu-container.active .note-item {
+  /* Pindahkan ke samping kanan */
+  transform: translate(50px, -50px); 
   opacity: 1;
 }
