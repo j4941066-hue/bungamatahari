@@ -21,6 +21,8 @@ body{
   /* kode dari slide sebelumnya... */
   text-align: center; /* Menengahkan semua teks di dalam kartu */
 }
+
+
 /* Gaya Dasar untuk Kontainer dan Tombol Pusat */
 .menu-container {
   /* Posisi relatif penting untuk menempatkan item di sekitarnya */
@@ -30,35 +32,47 @@ body{
 }
 
 .menu-toggle {
-  /* Membuat tombol START jadi lingkaran */
+  /* *** PERBAIKAN: Membuat tombol START jadi lingkaran sempurna *** */
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #007bff; /* Warna Keren */
+  height: 100%; /* Ubah dari 50% ke 100% */
+  border-radius: 50%; /* Ubah dari 40% ke 50% */
+  background-color: #86d45d; /* Warna Keren */
   color: white;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  position: absolute; /* Memposisikan di tengah kontainer */
+  
+  /* Tambahkan Flexbox untuk memusatkan teks 'START' */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute; 
   top: 0;
   left: 0;
-  z-index: 10; /* Pastikan di atas item menu lain */
+  z-index: 10; 
+  transition: transform 0.3s ease; /* Tambahkan transisi untuk animasi START */
 }
 
 /* Gaya untuk Item Menu (Kalkulator, Timer, Note) */
 .menu-item {
   width: 50px;
   height: 50px;
-  line-height: 50px; /* Untuk memusatkan teks */
+  line-height: 50px; 
   text-align: center;
   border-radius: 50%;
-  background-color: #ffc107; /* Warna opsi */
+  background-color: #f1a1d1; 
   position: absolute;
-  /* Item menu awalnya ditumpuk di atas tombol START */
+  
+  /* *** PERUBAHAN: Item menu awalnya diposisikan agar tidak 'bocor' *** */
+  /* Posisikan di tengah tombol START */
   top: 25px; 
   left: 25px; 
-  opacity: 0; /* Sembunyikan item awalnya */
-  transition: all 0.5s ease; /* Transisi untuk animasi menyebar */
+  
+  /* Gunakan scale(0) untuk menyembunyikan tanpa memengaruhi tata letak */
+  transform: scale(0);
+  opacity: 0; 
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Transisi yang lebih keren */
   z-index: 5;
 }
 
@@ -68,22 +82,6 @@ body{
   display: block;
   font-size: 10px;
 }
-
-/* KELAS AKTIF: Memicu Penyebaran Menu */
-
-/* Saat menu-container memiliki kelas 'active', item-item akan dipindahkan */
-.menu-container.active .calculator-item {
-  /* Pindahkan ke kiri atas */
-  transform: translate(-50px, -50px); 
-  opacity: 1;
-}
-
-.menu-container.active .timer-item {
-  /* Pindahkan ke atas */
-  transform: translate(0, -70px); 
-  opacity: 1;
-}
-
 .menu-container.active .note-item {
   /* Pindahkan ke kanan atas */
   transform: translate(50px, -50px); 
