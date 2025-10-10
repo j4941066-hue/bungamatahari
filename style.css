@@ -87,3 +87,15 @@ body{
   transform: translate(50px, -50px); 
   opacity: 1;
 }
+
+.menu-container.active .calculator-item {
+  /* Pindahkan ke kiri atas */
+  transform: translate(-50px, -50px); 
+  opacity: 1;
+}
+
+.menu-container.active .timer-item {
+  /* Pindahkan ke atas */
+  transform: translate(0, -70px); 
+  opacity: 1;
+}
